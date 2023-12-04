@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id ("kotlin-parcelize")
 }
 
 android {
@@ -60,6 +61,13 @@ dependencies {
     implementation ("com.github.yuriy-budiyev:circular-progress-bar:1.2.3")
 
     implementation ("com.github.owl-93.Determinate-Progress-View:release:v1.4.4")
+
+
+    implementation ("com.github.mindinventory:minavdrawer:1.2.2")
+
+    implementation ("com.airbnb.android:lottie:5.2.0")
+
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 
 
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="156dp"
+       android:background="@drawable/circular"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       android:layout_height="156dp">
+
+       <ImageView
+           xmlns:app="http://schemas.android.com/apk/res-auto"
+           android:id="@+id/profile_image"
+           android:layout_width="142dp"
+           android:layout_height="142dp"
+           android:src="@drawable/walking"
+           android:padding="8dp"
+           app:tint="@color/white"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:civ_border_width="3dp"
+           android:outlineSpotShadowColor="@color/white"
+           android:outlineAmbientShadowColor="@color/white"
+           app:civ_border_color="#fff"/>
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
