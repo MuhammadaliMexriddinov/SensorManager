@@ -53,4 +53,14 @@ dependencies {
 
     //Material
     implementation("androidx.cardview:cardview:1.0.0")
+
+
+    implementation ("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6")
+
+    implementation ("com.github.yuriy-budiyev:circular-progress-bar:1.2.3")
+
+    implementation ("com.github.owl-93.Determinate-Progress-View:release:v1.4.4")
+
+
+
 }
