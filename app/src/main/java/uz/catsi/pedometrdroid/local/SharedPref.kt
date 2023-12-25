@@ -43,6 +43,10 @@ class SharedPref {
         get() = preferences.getString("stepname", "10000")
         set(value) = preferences.edit().putString("stepname", value).apply()
 
+    var liveStep: String ?
+        get() = preferences.getString("liveStep", "0")
+        set(value) = preferences.edit().putString("liveStep", value).apply()
+
 
     var stepCount: String ?
         get() = preferences.getString("stepCount", "10000")

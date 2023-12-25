@@ -1,15 +1,19 @@
 package uz.catsi.pedometrdroid.ui
 
 import android.annotation.SuppressLint
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.util.DisplayMetrics
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
@@ -28,7 +32,7 @@ class SettingsActivity : AppCompatActivity() {
     lateinit var inputCalory: EditText
     lateinit var inputDistance: EditText
     lateinit var back: ImageView
-    lateinit var btnUpdate :ImageView
+    lateinit var btnUpdate: ImageView
     lateinit var historyStep: TextView
     lateinit var historyCalory: TextView
     lateinit var historyDistance: TextView
@@ -60,7 +64,7 @@ class SettingsActivity : AppCompatActivity() {
         historyCalory = findViewById(R.id.txtf1_2)
         historyDistance = findViewById(R.id.txtf1_3)
         themeActivity = findViewById(R.id.inputView)
-        btnUpdate=findViewById(R.id.btnUpdate)
+        btnUpdate = findViewById(R.id.btnUpdate)
         f1 = findViewById(R.id.f1)
         f2 = findViewById(R.id.f2)
         f3 = findViewById(R.id.f3)
@@ -116,15 +120,21 @@ class SettingsActivity : AppCompatActivity() {
                         pref.stepDistance = inputDistance.text.toString()
                         startActivity(Intent(this@SettingsActivity, MainActivity::class.java))
                     } else {
-                        val snackbar = Snackbar.make(inputDistance, getString(R.string.inp1), Snackbar.LENGTH_LONG)
+                        val snackbar = Snackbar.make(
+                            inputDistance,
+                            getString(R.string.inp1),
+                            Snackbar.LENGTH_LONG
+                        )
                         snackbar.show()
                     }
                 } else {
-                    val snackbar = Snackbar.make(inputCalory, getString(R.string.inp2), Snackbar.LENGTH_LONG)
+                    val snackbar =
+                        Snackbar.make(inputCalory, getString(R.string.inp2), Snackbar.LENGTH_LONG)
                     snackbar.show()
                 }
             } else {
-                val snackbar = Snackbar.make(inputStep, getString(R.string.inp3), Snackbar.LENGTH_LONG)
+                val snackbar =
+                    Snackbar.make(inputStep, getString(R.string.inp3), Snackbar.LENGTH_LONG)
                 snackbar.show()
             }
         }
@@ -134,86 +144,6 @@ class SettingsActivity : AppCompatActivity() {
         historyCalory.text = getString(R.string.stp2) + " : " + pref.stepCalory + " kcal"
         historyDistance.text = getString(R.string.stp3) + " : " + pref.stepDistance + " m"
 
-
-//        lifecycleScope.launch {
-//            withContext(Dispatchers.Default) {
-//                val myArrayList2_1 = ArrayList<String>()
-//                var j: Int = 1000
-//                while (j <= 100_000) {
-//                    j += 1000
-//                    myArrayList2_1.add(j.toString())
-//                }
-//                val listForField8_1 = myArrayList2_1.toTypedArray()
-//
-//
-//                val listCalory = ArrayList<String>()
-//                var l: Int = 0
-//                while (l <= 1000) {
-//                    l += 10
-//                    listCalory.add(l.toString())
-//                }
-//                val listForCalory = listCalory.toTypedArray()
-//
-//
-//                val listDistance = ArrayList<String>()
-//                var m: Int = 0
-//                while (m <= 100_000) {
-//                    m += 1
-//                    listDistance.add(m.toString())
-//                }
-//                val listForDistance = listDistance.toTypedArray()
-//
-//
-//                inputStep.minValue = 0
-//                inputStep.maxValue = listForField8_1.size - 1
-//                inputStep.wrapSelectorWheel = false
-//                inputStep.displayedValues = listForField8_1
-//
-//
-//                inputCalory.minValue = 0
-//                inputCalory.maxValue = listForCalory.size - 1
-//                inputCalory.wrapSelectorWheel = false
-//                inputCalory.displayedValues = listForCalory
-//
-//
-//                inputDistance.minValue = 0
-//                inputDistance.maxValue = listForDistance.size - 1
-//                inputDistance.wrapSelectorWheel = false
-//                inputDistance.displayedValues = listForDistance
-//
-//
-//                val pref = SharedPref.getInstance()
-//                pref.stepName = inputStep.value.toString()
-//                pref.stepCount = inputStep.value.toString()
-//                pref.stepCalory = inputCalory.value.toString()
-//                pref.stepDistance = inputDistance.value.toString()
-//
-//
-//                StepData.step=listForField8_1[inputStep.value]
-//
-//
-//            }
-//
-//
-//        }
-
-//        back.setOnClickListener {
-//            Toast.makeText(
-//                this,
-//                SharedPref().stepCount + " " + SharedPref.getInstance().stepCalory + " " + SharedPref.getInstance().stepDistance,
-//                Toast.LENGTH_SHORT
-//            ).show()
-//            startActivity(Intent(this@SettingsActivity, MainActivity::class.java).apply {
-//
-////                putExtra(
-////                    "MY_DATA",
-////                    MyData(
-////                        listForField8_1[inputStep.value],
-////                        listForCalory[inputCalory.value],
-////                        listForDistance[inputDistance.value]
-////                    )
-////                )
-//            })
     }
 
     private fun setLocate(language: String) {
@@ -225,4 +155,6 @@ class SettingsActivity : AppCompatActivity() {
         onConfigurationChanged(configuration)
         SharedPref.getInstance()?.language = language
     }
+
+
 }
